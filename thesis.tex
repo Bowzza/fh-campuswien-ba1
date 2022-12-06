@@ -22,11 +22,12 @@
 
 %input encoding for windows in utf-8 needed for Ä,Ö,Ü etc..:
 \usepackage[utf8]{inputenc}
+\usepackage{minted}
 %input encoding for linux:
 %\usepackage[latin1]{inputenc}
 %input encoding for mac:
 %\usepackage[applemac]{inputenc}
-
+\usepackage{float}
 \usepackage[ngerman]{babel}
 %for english use this instead:
 %\usepackage[english]{babel}
@@ -264,131 +265,134 @@ Für weiterführende Informationen zum wissenschaftlichen Schreiben siehe "J. Sc
 \chapter{Hauptteil}
 \label{chap:back}
 
-Textkörper mit noch einem Bild
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics{images/birne}
-	\caption{Eine Glühbirne}
-	\label{fig:birne}
-\end{figure}
-
 
 \section{Frontend Frameworks}
-Was sind Frontend Frameworks
+Frontend Frameworks sind Tools, die im allgemeinen auf JavaScript basieren. Diese fassen etwaige Funktionalitäten, Prozesse sowie Abhängigkeiten im Web Development Bereich zusammen. Dadurch ist es nicht nötig ständig wiederholende Funktionen, die jede Webseite besitzt, zu implementieren, da dies bereits vom Framework übernommen wurde. Zudem bieten diese Frameworks teilweise Hilfestellung bezüglich Deployment, Building und Testing der Webseite, sodass diese Funktionalitäten souverän in einem Projekt implementiert und eingebunden werden können. Da heutzutage Web Applikation immer komplexer und größer werden, ist eine Web Applikation Implementierung ohne Frontend Frameworks undenkbar und mittlerweile Standard in der Entwicklung. Einer der bekanntesten Frontend Frameworks sind Angular, React und Vue.js wobei mittlerweise Erweiterungen für React und Vue.js existieren, nämlich Next.js und Nuxt.js. Next.js baut auf das Framework von React auf und Nuxt.js basiert auf Vue.js. Angular ist ein vollständiges Framework, da es bereits schon sämtliche Funktionen beinhaltet, um eine komplexe Web Applikation zu entwickeln. Wo hingegen React und Vue.js lediglich Libraries sind. Für diese muss man zusätzliche Libraries einfügen, um auf den Funktionsumfang von Angular zu kommen.
+
 \section{Angular}
-Allgemeine Beschreibung von Angular
-\subsection{Architektur}
+Angular ist zur Zeit einer der bekanntesten Frontend Frameworks, welches für die Entwicklung von Web Applikationen verwendet wird. Angular ist eine sogenannte Single-Page Applikation. Dies bedeutet, dass nur eine Html-Seite gerendert wird. Wechselt man auf eine andere Seite innerhalb der Web Applikation, so wird die Seite an sich nicht gewechselt sondern nur der Inhalt. Angular basiert auf Components, welche Bestandteile der Webseite darstellen und benutzt werden, um diese zusammenzubauen. Diese Framework ist prinzipiell ein vollständiges Framework, da Angular bereits alle relevanten Libraries und Funktionalitäten beinhaltet, um die Implementierung einer komplexen und skalierbaren Webseite zu ermöglichen. Routing, Forms Management, Client-server Kommunikation sind nur einige Beispiele dafür. Angular hatte eine Vorgängerversion namens AngularJS. Nach der Veröffentlichen von Angular 2 im September 2016 wurde AngularJS abgelöst. Dieses Framework basiert auch auf Typescript und ist open-source. Angular wurde von Teams, die bei Google arbeiten, entwickelt.
+Für die Verwendung von Angular wird ein Node Package Manager benötigt. Dieser kann durch den Download und Installation von Node.js benutzt werden. Mithilfe des Node Package Managers ist es möglich die Angular Command Line Interface (CLI) herunterzuladen. Mit der Angular CLI kann man einfach Angular Projekte erstellen. Mit dem Keyword 'ng' führt man ein Command von der Angular CLI aus. Um ein neues Projekt anzulegen ist es notwendig folgenden Command auszuführen:
+\begin{minted}[frame=single,framesep=0.2pt]{cpp}
+ng new NameDesProjekts
+\end{minted}
+
 \subsection{Components}
-\subsection{Lifecycle}
-\subsection{Typescript}
-\section{Vue.js}
-Allgemeine Beschreibung von Vue.js
-\subsection{Architektur}
-\subsection{Components}
-\subsection{Lifecycle}
+Components sind unter anderem die Basis von Angular. Ein Component stellt ein Bestandteil einer Web Applikation dar. Im Prinzip erstellt man sich seine eigenen HTML-Tags und lässt diese nach belieben auf der Webseite anzeigen. Dies könnte zum Beispiel eine Menüleiste, Fußleiste, Kärtchen oder ein beliebiges UI Element sein. Sinn dahinter ist zu einem Reuseable Code. Components die erstellt wurden, kann man innerhalb vom Projekt mehrmals verwenden und spart sich somit Zeit. Außerdem behält der Code eine gewisse Struktur und ist dadurch übersichtlicher, da durch das Aufrufen einer Componente nur das HTML-Tag im Code angezeigt wird.
+Erstellt man eine Componente, werden vier verschiedene Dateien generiert. Zwei Typescript, ein HTML und ein CSS File. 
+Im ersten Typescript File namens "name.component.ts" befindet sich die Logik von diesem Component. Klickt man auf einen Button zum Beispiel, so wird diese Methode im "name.component.ts" File implementiert. Das zweite Typescript File namens "name.component.specs.ts" widmet sich den Tests eines Components. In diesem File wird für jede Methode im "name.component.ts" File, etwaige mögliche Testfälle abgedeckt, sodass garaniert werden kann, dass sämtliche Funktionalitäten und Methoden ordnungsgemäß funktionieren und keine Bugs aufweisen. Im HTML File befindet sich die Struktur und Aufbau der Component und im CSS File die dazugehörigen Styles.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/componentStructure.PNG}
+    \caption{Component Struktur [Quelle: Autor]}
+\end{figure}
+Um ein Component zu erstellen verwendet man in Angular folgenden Command:\\\
+\begin{minted}[frame=single,framesep=0.2pt]{cpp}
+ng generate component NameDerComponente
+\end{minted}
+Dieser Command kann auch abgekürzt werden, welcher dann folgendermaßen aussieht:\\\
+\begin{minted}[frame=single,framesep=0.2pt]{cpp}
+ng g c NameDerComponente
+\end{minted}
+In der Praxis ist es gängig, dass man alle Components in ein Unterverzeichnis namens 'components' speichert, so dass die gesamte Projektstruktur eine gewisse Ordnung behält. Nachdem ein Component erstellt wurde, kann diese in einem HTML File mithilfe des sogenannten Component Selector angezeigt werden. In der Abbilding 2.2 wurde ein Filter Component erstellt, dessen Selector als 'app-filter' bezeichnet wird. Um dieses Component aufzurufen deklariert man den Selector der Component im jeweiligen HTML File mit '<app-filter></app-filter>'.
 
-\section{Methodik}
-\subsection{Angular}
-Wie hat man folgende Kriterien festgestellt bzw. gemessen
-\subsubsection{Development Speed}
-\subsubsection{Build Size}
-\subsubsection{Compile Time}
-\subsubsection{Dokumentation}
-\subsection{Vue.js}
-\subsubsection{Development Speed}
-\subsubsection{Build Size}
-\subsubsection{Compile Time}
-\subsubsection{Dokumentation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/selector.PNG}
+    \caption{Component Selector [Quelle: Autor]}
+\end{figure}
 
-\section{Vergleich}
-Vergleiche der Kriterien beschreiben
-\subsection{Development Speed}
-\subsection{Build Size}
-\subsection{Compile Time}
-\subsection{Dokumentation}
+\subsection{Services}
+Services oder auch als Serviceklassen bezeichnet, spielen eine bestimmte Rolle in Angular. Zu einem können sie als Schnittstelle zwischen Angular und dem Backend verwendet werden, zum anderen um die Kommunikation zwischen Components zu ermöglichen, wobei dieses Konzept später in diesem Paper weiter erläutert wird.\\\
+Components müssen häufig bestimmte Daten von einer Datenbank zum Beispiel anzeigen. Für dies muss zuerst ein HTTP Request an ein Backend geschickt werden, welches schluss endlich auf die Datenbank zugreift und die bestimmten Daten an das Frontend schickt. Services dienen hierbei als Schnittstelle zwischen Frontend und Backend. Sie kümmern sich in diesem Fall um das Abschicken und Empfangen von Requests und Responses. Dadurch ist eine klare Arbeitsaufteilung innerhalb der Projektstruktur von Angular möglich. Components kümmern sich um das Darstellen von Daten und Services, um diese Daten zum Beispiel von einem Backend Server abzurufen.\\\
+Für das Erstellen von Services kann man die Angular cli verwenden. Ähnlich wie bei der Component Generierung, verwendet man für Services folgenden Command:
+\begin{minted}[frame=single,framesep=0.2pt]{cpp}
+ng generate services NameDesServices
+\end{minted}
+Hier ist es möglich den Command in gekürzter Form anzugeben:
+\begin{minted}[frame=single,framesep=0.2pt]{cpp}
+ng g s NameDesServices
+\end{minted}
+In der Praxis ist es üblich, Services in einem Unterverzeichnis namens 'services' zu speichern, damit eine klare Trennung zwischen Components und Services besteht. Für die Verwendung von Services kann ein Component dieses in sein Konstruktor innjecten. Dieses Konzept nennt man Dependency Injection. Dabei deklariert man im Konstruktur des Components den Service, der benutzt werden soll. Wenn eine Service als Injectable angegeben ist, kann diese in einem Component injeziert werden.
 
-Textkörper mit Tabelle.
+\subsection{Routing}
+In einer Single Page Aplikation ändern man, was der Benutzer sieht, indem Teile der Webseite ein- oder ausgeblendet werden, die bestimmten Components entsprechen. In diesem Fall wird nicht der Server aufgerufen, um eine neue Seite zu erhalten. Wenn Benutzer Anwendungsaufgaben ausführen, müssen sie zwischen den verschiedenen Ansichten wechseln, die definiert wurden.
+Für die Navigation von einer Ansicht zur nächsten verwenden man den Angular Router. Der Router ermöglicht die Navigation, indem er eine Browser-URL als Anweisung zum Ändern der Ansicht interpretiert.\\\
+Für die Verwendung von dem Angular Router, muss dieser im 'app.module.ts' File importiert werden.\cite{angularrouter}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/importRouter.PNG}
+    \caption{Importing Angular Router [Quelle: Autor]}
+\end{figure}
+\textbf{Definition der Routen}\\\
+Damit zwischen einzelnen Routen gewechselt werden kann, ist es notwendig zunächst die Routen zu definieren. Dabei gibt man an welches Component bei einer bestimmten Route angezeigt wird. Man weist einen URL Pfad zu einem bestimmten Component. Abbildung 2.4 stellt ein Array von verschiedenen Routen dar. Das Array besteht aus Objekten, welches einen Pfad und eine Component beinhaltet. Im Pfad wird der Name von der Route beschrieben und beim Component, welches Component angezeigt werden soll, wenn auf diesen bestimmten Pfad navigiert. Navigiert man zum Beispiel zur '/home' URL, wird das Home Component geladen und angezeigt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/routes.PNG}
+    \caption{Route Definition [Quelle: Autor]}
+\end{figure}
+\textbf{Angular Router Konfiguration}\\\
+Nachdem die einzelnen Routen erstellt wurden, muss der Router mit diesen konfiguriert werden. Dies geschieht mithilfe der 'RouterModule.forRoot()' Methode. Dieser Methode übergibt man das vorhin erstellte Array, die die Routen beinhaltet. Somit weiß der Angular Router über die einzelnen Routen bescheid und kann nach einer Navigation zu einem bestimmten Pfad, das entsprechende Component laden.
 
-\begin{table*}[htbp]
-	\centering
-		\begin{tabular}{|l|c|r|}
-		\hline
-		\rowcolor[gray]{0.9}
-		Spalte 1 & Spalte 2 & Spalte 3 \\
-		\hline
-		Affen & Giraffen & Löwen \\
-		Apfel & Birnen & Bananen \\
-		Irgend & et & was \\
-		\hline	
-		\end{tabular}
-	\caption{Beispiel für eine Tabelle}
-	\label{tab:BeispielFuerEineTabelle}
-\end{table*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/routerModuleroot.PNG}
+    \caption{Angular Router Konfiguration [Quelle: Autor]}
+\end{figure}
+\textbf{Route mit Parameterübergabe}\\\
+Navigiert man zu einem bestimmten Pfad, kann ein Parameter mitgegeben werden. Dieser muss im vorhinein bei der Routen Definition angegeben. Der Parameter dient hierbei als ein Platzhalter. Zum Beispiel kann eine ID mitgegeben werden. Beim Laden des jeweiligen Components kann vom Pfad diese ID ausgelesen werden, um anschließend bestimmte Daten im Component anzeigen zu lassen, die dieser ID entsprechen. Oft ist hier der Fall, dass die ID vom Pfad ausgelesen wird und anschließend ein HTTP Request an ein Backend Server gesendet wird, um zu einer bestimmten Datei zusätzliche Informationen anzeigen zu lassen. In der Abbildung 2.6 ist eine Routen Definition mit einem Platzhalter namens 'ID' zu sehen, der das oben Beschriebene umsetzt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/routeWithParam.PNG}
+    \caption{Route Definition mit Parameter [Quelle: Autor]}
+\end{figure}
+\textbf{Default Route}\\\
+Die letzte Route Definition in der Abbildung 2.4 stellt einen Default Pfad dar. Navigiert man zu einem Pfad der nicht existiert bzw. vom Router nicht gefunden wird, so lädt der Router das Component welches unter dem Default Pfad angegeben ist. Wenn ein Benutzer die Webseite lädt, wird zu diesem Pfad weitergeleitet.
+Bevor der Router zum Einsatz kommen kann, muss das sogenannte 'RouterOutlet directive' im HTML File angegeben werden. Typischerweise passiert dies im HTML File vom App Component. Hierbei definiert man das RouterOutlet directive als HTML Tag '<router-outlet></router-outlet>'. Dieses directive dient als Platzhalter, für die definierten Routen im Angular Router. Dort wo das RouterOutlet directive platziert wird, werden die Components angezeigt, wenn zu deren Pfade navigiert wird.\\\
 
-Man beachte die Gegenüberstellung in Tabelle \ref{tab:BeispielFuerEineTabelle}.
+\textbf{Router Links}\\\
+Für die Navigation an sich bietet Angular eine bestimmte Funktionalität namens Router Links an. Abbildung 2.7 1. Zeile, sieht man eine einfache Routing Navigation. Dem Anchor Tag wird ein Attribut namens 'routerLink' hinzugefügt. Diesem Attribut übergibt man einen Pfad, zu dieser der Angular Router navigiert, wenn auf den Anchor Tag geklickt wird.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/routingNavigation.PNG}
+    \caption{Router navigation [Quelle: Autor]}
+\end{figure}
+Müssen zusätzliche Properties oder Query Parameter dem Pfad beim Navigieren mitgegeben werden, kann dies mit '[routerLink]' durchgeführt werden. Durch die eckigen Klammern, wird dem Angular Router Bescheid gegeben, dass neben dem Pfad auch zusätzliche Informationen mitgegeben werden können. Hierbei könnte es sich um eine definierte Variable in einem Component File handeln, oder dynamische Werte. In Abbildung 2.7 2. Zeile, würde dieser Pfad folgende Route entsprechen, '/searchResults?product=notebook'. Mit [queryParams] teilt man den Angular Router mit, dass er neben dem Pfad zusätzlich den Query Parameter namens 'product', mit dem Wert 'notebook' setzen soll.\\\
+\textbf{Activated Route}\\\
 
-%Online Tabellengenerator für Latex: https://www.tablesgenerator.com/
+\textbf{Route Protection}\\\
 
+\textbf{Authentication Guard}\\\
+\subsection{Component Kommunikation}
+\textbf{Parent-to-child Kommunikation}\\\
+\textbf{Child-to-parent Kommunikation}\\\
+\textbf{Kommunikation with Serviceclass}
 
+\newpage
+\section{Next.js}
+\subsection{Routing}
+\textbf{Wie funktioniert Routing}\\\
+\textbf{Definition der Routen}\\\
+\textbf{Navigation zwischen unterschiedliche Routen}\\\
+\textbf{Route mit Parameterübergabe}\\\
+\textbf{Route Protection}\\\
 
-Aufzählungen:
+\subsection{Component Kommunikation}
+\textbf{Parent-to-child Kommunikation}\\\
+Properties\\\\\\
+\textbf{Child-to-parent Kommunikation}\\\
+Function properties\\\\\\
+\textbf{Centralized State}
 
-Nummeriert:
-
-\begin{enumerate}
-	\item Punkt 1
-	\item Punkt 2
-\end{enumerate}
-
-Mit Bullet Points:
-
-\begin{itemize}
-	\item Punkt 1
-	\item Punkt 2
-\end{itemize}
-
-Mit Beschreibungen:
-
-\begin{description}
-	\item[Item 1] das ist der 1.Punkt
-	\item[Item 2] und das der 2.
-\end{description}
-
-
-Auch Programmcodes können an entsprechender Stelle eingefügt werden, man beachte dazu auch Listing \ref{lst:conv}.
-
-% see also http://mirror.easyname.at/ctan/macros/latex/contrib/listings/listings.pdf for options
-
-\begin{lstlisting}[frame=lines, caption=Simple Listing, captionpos=b, label = lst:conv, language=C, showstringspaces=false]
-#include <stdio.h>
-int main()
-{
-	int i, n, t1 = 0, t2 = 1, nextTerm;
-
-	printf("Enter the number of terms: ");
-	scanf("%d", &n);
-
-	printf("Fibonacci Series: ");
-
-	for (i = 1; i <= n; ++i)
-	{
-		printf("%d, ", t1);
-		nextTerm = t1 + t2;
-		t1 = t2;
-		t2 = nextTerm;
-	}
-	return 0;
-}
-\end{lstlisting}
-
-Und zuguterletzt, Formeln mitten im Fliesstext, wie z.B. $a^2+b^2=c^2$, in einem Absatz.
+\newpage
+\section{Unterschiede}
+\subsection{Routing Unterscheidungen}
+\subsection{Component-interaction Unterscheidungen}
 
 \newpage
 \chapter{Schluss}
 \section{Zusammenfassung}
 Wichtigsten Erkenntnisse noch einmal zusammenfassen
-\section{Zukunftsausblicke}
+\section{Zukunfsausblicke}
 Mögliche Themen die in zukünftigen Paper ausgearbeitet werden können
 
 \newpage
