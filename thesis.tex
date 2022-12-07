@@ -353,7 +353,7 @@ Bevor der Router zum Einsatz kommen kann, muss das sogenannte 'RouterOutlet dire
 Für die Navigation an sich bietet Angular eine bestimmte Funktionalität namens Router Links an. Abbildung 2.7 1. Zeile, sieht man eine einfache Routing Navigation. Dem Anchor Tag wird ein Attribut namens 'routerLink' hinzugefügt. Diesem Attribut übergibt man einen Pfad, zu dieser der Angular Router navigiert, wenn auf den Anchor Tag geklickt wird.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1]{images/routingNavigation.PNG}
+    \includegraphics[scale=0.8]{images/routingNavigation.PNG}
     \caption{Router navigation [Quelle: Autor]}
 \end{figure}
 Müssen zusätzliche Properties oder Query Parameter dem Pfad beim Navigieren mitgegeben werden, kann dies mit '[routerLink]' durchgeführt werden. Durch die eckigen Klammern, wird dem Angular Router Bescheid gegeben, dass neben dem Pfad auch zusätzliche Informationen mitgegeben werden können. Hierbei könnte es sich um eine definierte Variable in einem Component File handeln, oder dynamische Werte. In Abbildung 2.7 2. Zeile, würde dieser Pfad folgende Route entsprechen, '/searchResults?product=notebook'. Mit [queryParams] teilt man den Angular Router mit, dass er neben dem Pfad zusätzlich den Query Parameter namens 'product', mit dem Wert 'notebook' setzen soll.\\\
